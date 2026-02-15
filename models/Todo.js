@@ -6,7 +6,10 @@ const todoSchema = new mongoose.Schema(
     title: { type: String, required: true },
     description: { type: String },
     completed: { type: Boolean, default: false },
-    dueDate: { type: Date }
+    dueDate: { type: Date },
+    // for image
+    image: { type: String }
+
   },
   { timestamps: true }
 );
