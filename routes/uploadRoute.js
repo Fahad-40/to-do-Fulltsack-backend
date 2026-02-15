@@ -15,6 +15,9 @@ router.post("/", upload.single("image"), async (req, res) => {
       (error, result) => {
         if (error) return res.status(500).json({ error });
         res.json({ imageUrl: result.secure_url });
+
+        
+
       }
     ).end(file.buffer);
 
