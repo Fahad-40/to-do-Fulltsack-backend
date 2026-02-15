@@ -26,7 +26,7 @@ app.use("/api/users", userRoutes);
 app.use("/api/todos", todoRoutes);
 
 // for image
-app.use("/api", uploadRoute);
+app.use("/api/upload", uploadRoute);
 
 mongoose.connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB Connected"))
