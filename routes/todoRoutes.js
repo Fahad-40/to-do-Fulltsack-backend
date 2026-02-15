@@ -17,13 +17,14 @@ router.get("/", authMiddleware, async (req, res) => {
 // Create todo
 router.post("/", authMiddleware, async (req, res) => {
   try {
-    const { title, description, dueDate } = req.body;
+    const { title, description, dueDate, image } = req.body;
     if (!title) return res.status(400).json({ message: "Title required" });
 
     const todo = await Todo.create({
       user: req.user.id,
       title,
       description,
+      image,
       dueDate: dueDate ? new Date(dueDate) : undefined
     });
 
