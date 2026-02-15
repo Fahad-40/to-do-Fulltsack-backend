@@ -59,7 +59,8 @@ router.delete("/:id", authMiddleware, async (req, res) => {
     if (todo.user.toString() !== req.user.id)
       return res.status(403).json({ message: "Unauthorized" });
 
-    await todo.remove();
+   await Todo.findByIdAndDelete(req.params.id);
+   
     res.json({ message: "Deleted" });
   } catch (err) {
     res.status(500).json({ message: "Server error" });
